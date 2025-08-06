@@ -81,7 +81,13 @@
       const errorMsg = document.getElementById('errorMsg');
 
       if (user === "rehana@786" && pass === "rehana@78600") {
-        window.location.href = "encrypted.html";
+        // ✅ Set access flag before redirect
+        sessionStorage.setItem("rehana_access", "true");
+
+        // ✅ Short delay to ensure storage saves
+        setTimeout(() => {
+          window.location.href = "encrypted.html";
+        }, 200);
       } else {
         errorMsg.textContent = "❌ Invalid Username or Password!";
       }
